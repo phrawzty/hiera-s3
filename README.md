@@ -30,6 +30,14 @@ a/home/centos/rpmbuild/SPECSs the `prefix` (see the Config section above).
 
 A rudimentary RPM spec is provided.  It has `rubygem-aws-sdk` as a package
 dependency; however, that package isn't officially distributed. I suggest you
-either roll that package yourself using
+either roll that package (and its dependencies) yourself using
 [FPM](https://github.com/jordansissel/fpm) or remove the dependency entirely -
 your call.
+
+If you choose to FPM, this will help:
+```bash
+for i in aws-sdk aws-sdk-resources aws-sdk-core multi_xml; do
+    fpm -s gem -t rpm $i
+done
+rpm --addsign rubygem*.rpm      # YOLO
+```
