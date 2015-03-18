@@ -24,4 +24,12 @@ fails, then all is lost!
 The basic idea is to treat S3 like nestable key-value store: each file in the
 bucket is a key and the contents of that file are the value. You can put the
 files in a directory of that bucket - just specify the name of that directory
-as the `prefix` (see the Config section above).
+a/home/centos/rpmbuild/SPECSs the `prefix` (see the Config section above).
+
+# RPM Spec
+
+A rudimentary RPM spec is provided.  It has `rubygem-aws-sdk` as a package
+dependency; however, that package isn't officially distributed. I suggest you
+either roll that package yourself using
+[FPM](https://github.com/jordansissel/fpm) or remove the dependency entirely -
+your call.
