@@ -9,6 +9,7 @@ class Hiera
                 require 'rubygems'
                 require 'aws-sdk'
                 require 'yaml'
+                require 'facter'
                 say('initialised!')
             end
 

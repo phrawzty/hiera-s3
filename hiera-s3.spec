@@ -1,5 +1,5 @@
 Name:       hiera-s3
-Version:    0.0.1
+Version:    0.0.2
 Release:    1%{?dist}
 Summary:    Socorro Public Repo
 License:    MPLv2
