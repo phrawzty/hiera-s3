@@ -1,7 +1,7 @@
 Name:       hiera-s3
 Version:    0.0.2
-Release:    1%{?dist}
-Summary:    Socorro Public Repo
+Release:    2%{?dist}
+Summary:    S3 backend for Hiera
 License:    MPLv2
 URL:        https://github.com/phrawzty/hiera-s3
 Group:      Development/Tools
@@ -17,15 +17,17 @@ Yet Another S3 Backend for Hiera.
 %setup -q
 
 %install
-mkdir -p %{buildroot}/%{_datadir}/ruby/vendor_ruby/hiera/backend
-cp s3_backend.rb %{buildroot}/%{_datadir}/ruby/vendor_ruby/hiera/backend
+mkdir -p %{buildroot}/%{_sysconfdir}/puppet/modules/hiera_s3/lib/hiera/backend
+cp s3_backend.rb %{buildroot}/%{_sysconfdir}/puppet/modules/hiera_s3/lib/hiera/backend
 
 %clean
 rm -rf %{buildroot}
 
 %files
+%doc README.md
 %defattr(-,root,root,-)
-%attr(644, root, root) %{_datadir}/ruby/vendor_ruby/hiera/backend/s3_backend.rb
+%dir %attr(755, root, root) %{_sysconfdir}/puppet/modules/hiera_s3
+%attr(644, root, root) %{_sysconfdir}/puppet/modules/hiera_s3/lib/hiera/backend/s3_backend.rb
 
 %changelog
 * Wed Mar 18 2015 Dan Phrawzty <phrawzty@mozilla.com>
