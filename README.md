@@ -36,8 +36,9 @@ your call.
 
 If you choose to FPM, this will help:
 ```bash
-for i in aws-sdk aws-sdk-resources aws-sdk-core multi_xml; do
-    fpm -s gem -t rpm $i
-done
+fpm -e -s gem -t rpm --prefix /usr/share/gems multi_xml
+fpm -e -s gem -t rpm --prefix /usr/share/gems aws-sdk
+fpm -e -s gem -t rpm --prefix /usr/share/gems aws-sdk-resources
+fpm -e -s gem -t rpm --prefix /usr/share/gems --gem-bin-path /usr/local/bin aws-sdk-core
 rpm --addsign rubygem*.rpm      # YOLO
 ```
