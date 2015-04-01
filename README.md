@@ -42,3 +42,8 @@ fpm -e -s gem -t rpm --prefix /usr/share/gems aws-sdk-resources
 fpm -e -s gem -t rpm --prefix /usr/share/gems --gem-bin-path /usr/local/bin aws-sdk-core
 rpm --addsign rubygem*.rpm      # YOLO
 ```
+
+The `-e` is necesssary since you'll need to remove these directories from the
+package list:
+* `/usr/share/gems/build_info`
+* `/usr/share/gems/doc`
